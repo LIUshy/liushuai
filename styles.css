@@ -1,0 +1,62 @@
+/* Clean academic theme (original) */
+:root {
+  --bg: #ffffff;
+  --fg: #0f172a;
+  --muted: #475569;
+  --border: #e2e8f0;
+  --accent: #1f6feb;
+  --card: #ffffff;
+  --shadow: 0 2px 16px rgba(2, 6, 23, 0.06);
+  --maxw: 1000px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--fg); font: 16px/1.65 system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { max-width: var(--maxw); margin: 0 auto; padding: 16px; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.85); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.brand { display: grid; grid-template-columns: 96px 1fr; gap: 16px; align-items: center; }
+.avatar { width: 96px; height: 96px; border-radius: 50%; box-shadow: var(--shadow); object-fit: cover; }
+.brand h1 { margin: 0 0 4px; font-size: 26px; line-height: 1.2; }
+.brand p { margin: 4px 0; color: var(--muted); }
+.links a { margin-right: 8px; }
+
+.nav { display: flex; flex-wrap: wrap; gap: 12px; padding-bottom: 8px; }
+.nav a { padding: 6px 0; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+
+.main { display: grid; grid-template-columns: 1fr; gap: 16px; padding-top: 12px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 16px 18px;
+}
+h2 { margin: 4px 0 10px; font-size: 22px; }
+.pub-list { padding-left: 20px; }
+.pub-list li { margin: 10px 0; }
+.pub-title { font-weight: 600; }
+.pub-authors { display: block; color: var(--muted); }
+.pub-links a { margin-right: 8px; }
+
+.two-col {
+  columns: 2 300px;
+  column-gap: 24px;
+}
+.two-col li { break-inside: avoid; margin-bottom: 6px; }
+
+.site-footer { border-top: 1px solid var(--border); margin-top: 24px; }
+.site-footer p { text-align: center; color: var(--muted); }
+
+@media (min-width: 960px) {
+  .main { grid-template-columns: 1fr 1fr; }
+  .main .card:nth-child(1) { grid-column: 1 / -1; }
+  .main .card#pubs { grid-column: 1 / -1; }
+}
